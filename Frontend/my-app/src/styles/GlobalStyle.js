@@ -26,5 +26,9 @@ export const GlobalStyle = createGlobalStyle`
         overflow: hidden;
         color: rgb(35,35,96, .7);
     }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--primary-color);
+    }
 `;
     

@@ -6,7 +6,7 @@ import { useGlobalContext } from '../../context/globalContext';
 import Button from '../buttons/Button';
 import { plus } from '../../Utils/Icons';
 
-function Form(){
+function ExpenseForm(){
     const {addIncome, getIncomes } = useGlobalContext()
     const [inputState, setInputState]= useState({
         title: '',
@@ -38,7 +38,7 @@ function Form(){
         })
     }
     return(
-        <FormStyled onSubmit={handleSubmit}>
+        <ExpenseFormStyled onSubmit={handleSubmit}>
 
             <div className='input-control'>
                 <input 
@@ -98,11 +98,11 @@ function Form(){
 
                 />
             </div>
-        </FormStyled>
+        </ExpenseFormStyled>
     )
 }
 
-const FormStyled = styled.form`
+const ExpenseFormStyled = styled.form`
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -152,4 +152,4 @@ const FormStyled = styled.form`
 
 
 `;
-export default Form
+export default ExpenseForm

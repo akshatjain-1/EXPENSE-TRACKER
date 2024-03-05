@@ -42,7 +42,39 @@ export const GlobalProvider = ({children}) => {
         return totalIncome ;
     }
 
-    console.log(totalIncome());
+
+    //calculate expense
+
+    const addExpense = async (income) => {
+        const response = await axios.post(`${BASE_URL}add-income`, income)
+            .catch((err) => {
+                setError(err.response.data.message)
+            })
+        getIncomes()
+
+        
+
+    }
+
+    const getExpenses = async () => {
+        const response = await axios.get(`${BASE_URL}get-incomes`)
+        setIncomes(response.data)
+        console.log(response.data)
+    }
+
+    const deleteExpense = async (id) => {
+        const res = await axios.delete(`${BASE_URL}delete-income/${id}`)
+        getIncomes()
+    }
+
+    const totalExpense = () => {
+        let totalIncome = 0;
+        Incomes.forEach((income) => {
+            totalIncome = totalIncome + income.amount
+        })
+
+        return totalIncome ;
+    }
     
 
 
@@ -52,7 +84,12 @@ export const GlobalProvider = ({children}) => {
             addIncome,
             getIncomes,
             Incomes,
-            deleteIncome
+            deleteIncome,
+            totalIncome,
+            addExpense,
+            getExpenses,
+            deleteExpense,
+            totalExpense
 
 
         }}>
