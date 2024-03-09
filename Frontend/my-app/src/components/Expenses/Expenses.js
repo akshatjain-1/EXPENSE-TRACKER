@@ -4,24 +4,25 @@ import { InnerLayout } from '../../styles/layouts';
 import { useGlobalContext } from '../../context/globalContext';
 import Form from '../Form/Form';
 import IncomeItem from '../IncomeItem/IncomeItem';
+import ExpenseForm from './ExpenseForm';
 
 function Expenses(){
-    const {addIncome, Incomes, getIncomes, deleteIncome, totalIncome } = useGlobalContext()
+    const {addIncome, Expenses, getExpenses, deleteExpense, totalExpense } = useGlobalContext()
 
     useEffect(() => {
-        getIncomes()
-    },[])
+        getExpenses()
+    },[])   
     return (
-        <IncomeStyled> 
+        <ExpenseStyled> 
             <InnerLayout>   
                 <h1> Expenses</h1>
-                <h2 className='total-income'> Total Expense: <span> ${totalIncome()} </span></h2>
+                <h2 className='total-income'> Total Expense: <span> ${totalExpense()} </span></h2>
                 <div className="income-content">
                     <div className="form-container">
-                        <Form/>
+                        <ExpenseForm/>
                     </div>
                     <div className="income">
-                        {Incomes.map((income) => {
+                        {Expenses.map((income) => {
                             const {_id, title, amount, date, category, description, type} = income;
                             return <IncomeItem
                                 key={_id}
@@ -33,7 +34,7 @@ function Expenses(){
                                 type={type}
                                 category={category}
                                 indicatorColor="var(--color-green)"
-                                deleteItem={deleteIncome}
+                                deleteItem={deleteExpense}
 
                             />
                         })}
@@ -41,11 +42,11 @@ function Expenses(){
                 </div>
             
             </InnerLayout>
-         </IncomeStyled>
+         </ExpenseStyled>
     )
 }
 
-const IncomeStyled = styled.div`
+const ExpenseStyled = styled.div`
     display: flex;
     overflow: auto;
 

@@ -42,21 +42,21 @@ function IncomeItem({
 
     const expenseCatIcon = () => {
         switch(category) {
-            case 'education':
+            case 'Education':
                 return book;
-            case 'groceries':
+            case 'Groceries':
                 return food;
-            case 'health':
+            case 'Medicines':
                 return medical;
-            case 'subscriptions':
+            case 'Recreation':
                 return tv;
-            case 'takeaways':
+            case 'Food':
                 return takeaway;
-            case 'clothing':
+            case 'Clothes':
                 return clothing;
-            case 'travelling':
+            case 'Travel':
                 return freelance;
-            case 'other':
+            case 'Miscellaneous':
                 return circle;
             default:
                 return ''

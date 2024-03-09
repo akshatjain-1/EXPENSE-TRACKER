@@ -7,7 +7,7 @@ import Button from '../buttons/Button';
 import { plus } from '../../Utils/Icons';
 
 function ExpenseForm(){
-    const {addIncome, getIncomes } = useGlobalContext()
+    const {addExpense } = useGlobalContext()
     const [inputState, setInputState]= useState({
         title: '',
         amount: '',
@@ -26,8 +26,7 @@ function ExpenseForm(){
 
     const handleSubmit = e => {
         e.preventDefault()
-        addIncome(inputState)
-        getIncomes()
+        addExpense(inputState)
         setInputState({
             title: '',
             amount: '',
@@ -53,7 +52,7 @@ function ExpenseForm(){
                 <input value= {amount}
                     type='text'
                     name= {'amount'}
-                    placeholder='Salary Amount'
+                    placeholder='Expense Amount'
                     onChange={handleInput('amount')}
                     />
             </div>
@@ -72,14 +71,17 @@ function ExpenseForm(){
             <div className="selects input-control">
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
                     <option value=""  disabled >Select Option</option>
-                    <option value="salary">Salary</option>
-                    <option value="freelancing">Freelancing</option>
-                    <option value="investments">Investiments</option>
-                    <option value="stocks">Stocks</option>
-                    <option value="bitcoin">Bitcoin</option>
-                    <option value="bank">Bank Transfer</option>  
-                    <option value="youtube">Youtube</option>  
-                    <option value="other">Other</option>  
+                    <option value="Education"> Education</option>
+                    <option value="Groceries">Groceries</option>
+                    <option value="Medicines">Medicines</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Clothes">Clothes</option>
+                    <option value="Food">Food </option>  
+                    <option value="Travel"> Travel</option>  
+                    <option value="Shopping"> Shopping </option>
+                    <option value=" Recreation"> Recreation </option>
+                    <option value="Miscellaneous">Miscellaneous</option>  
+                      
                 </select>
             </div>
             <div className='input-control'>
@@ -87,7 +89,7 @@ function ExpenseForm(){
             </div>
             <div className='submit-btn'>
                 <Button
-                    name = {'Add Income'}
+                    name = {'Add Expense'}
                     icon={plus}
                     bPad={'.8rem 1.6rem'}
                     bRad={'30px'}
