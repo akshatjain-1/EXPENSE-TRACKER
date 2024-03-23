@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react"
 import axios from 'axios'
+import { expenses } from "../Utils/Icons"
 
 const BASE_URL = " http://localhost:5000/api/v1/"
 
@@ -75,7 +76,15 @@ export const GlobalProvider = ({children}) => {
 
         return totalIncome ;
     }
+
+    const totalBalance = () => {
+        return totalIncome() - totalExpense()
+    }
     
+
+    const transactionHistory = () => {
+        const history = [...Incomes, ...expenses]
+    }
 
 
 
@@ -90,7 +99,8 @@ export const GlobalProvider = ({children}) => {
             addExpense,
             getExpenses,
             deleteExpense,
-            totalExpense
+            totalExpense,
+            totalBalance
 
 
         }}>
