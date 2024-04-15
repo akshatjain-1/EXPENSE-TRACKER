@@ -7,7 +7,7 @@ import Button from '../buttons/Button';
 import { plus } from '../../Utils/Icons';
 
 function ExpenseForm(){
-    const {addExpense } = useGlobalContext()
+    const {addExpense, error } = useGlobalContext()
     const [inputState, setInputState]= useState({
         title: '',
         amount: '',
@@ -38,6 +38,8 @@ function ExpenseForm(){
     }
     return(
         <ExpenseFormStyled onSubmit={handleSubmit}>
+        {error && <p className='error'> {error} </p>}
+
 
             <div className='input-control'>
                 <input 
