@@ -17,7 +17,7 @@ function Dashboard(){
     return (
         <DashboardStyled>
             <InnerLayout>
-                <h1>All Transactions</h1>
+                <h2 className='heading-tans'>All Transactions</h2>
                 <div className='stats-con'>
                     <div className='chart-con'>
                         <Chart/>
@@ -35,7 +35,7 @@ function Dashboard(){
                                         {dollar}{totalExpense()}
                                     </p>
                             </div>
-                            <div className='total-balance'>
+                            <div className='balance'>
                                 <h2>Total Balance</h2>
                                 <p>
                                     {dollar}{totalBalance()}
@@ -45,22 +45,22 @@ function Dashboard(){
                     </div>
                     <div className='history-con'>
                         <History/>
-                        <h2 className='salary-title'> Min <span> Salary </span> Max </h2>
+                        <h2 className='salary-title'> Min <span className='min-title'> Salary </span> Max </h2>
                         <div className='salary-item'>
                             <p>
-                                {Math.min(...Incomes.map(item => item.amount))}
+                                ${Math.min(...Incomes.map(item => item.amount))}
                             </p>
                             <p>
-                                {Math.max(...Incomes.map(item => item.amount))}
+                                ${Math.max(...Incomes.map(item => item.amount))}
                             </p>
                         </div>
-                        <h2 className='salary-title'> Min <span> Expense </span> Max </h2>
+                        <h2 className='salary-title'>Min <span className='min-title'>Expense </span>Max</h2>
                         <div className='salary-item'>
                             <p>
-                                {Math.min(...Expenses.map(item => item.amount))}
+                                ${Math.min(...Expenses.map(item => item.amount))}
                             </p>
                             <p>
-                                {Math.max(...Expenses.map(item => item.amount))}
+                                ${Math.max(...Expenses.map(item => item.amount))}
                             </p>
                         </div>
                     
@@ -72,19 +72,23 @@ function Dashboard(){
 }
 
 const DashboardStyled = styled.div`
-
+    .heading-tans{
+        font-size: 1.5rem;
+    }
     .stats-con{
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         gap: 1rem;
+        margin-top:0.5rem;
         .chart-con{
             grid-column: 1 / 4;
-            height: 200px;
+            height: 55%;
+            width:100%;
             .amount-con{
                 display: grid;
-                grid-template-columns: repeat(1, 1fr);
+                grid-template-columns: repeat(4, 1fr);
                 gap: 1rem;
-                margin-top: 1rem;
+                margin-top: 0.5rem;
                 .income, .expense{
                     grid-column: span 2;
                 }
@@ -92,11 +96,14 @@ const DashboardStyled = styled.div`
                     background: #FCF6F9;
                     border: 2px solid #FFFFFF;
                     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-                    border-radius: 20px;
-                    padding: 1rem;
+                    border-radius: 15px;
+                    padding: 0.75rem;
                     p{
-                        font-size: 3.5rem;
+                        font-size: 1.5rem;
                         font-weight: 700;
+                    }
+                    h2{
+                        font-size: 1.25rem;
                     }
                 }
 
@@ -106,10 +113,13 @@ const DashboardStyled = styled.div`
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
+                    h2{
+                        font-size: 1.25rem;
+                    }
                     p{
                         color: var(--color-green);
                         opacity: 0.6;
-                        font-size: 4.5rem;
+                        font-size: 1.75rem;
                     }
                 }
             }
@@ -118,15 +128,17 @@ const DashboardStyled = styled.div`
         .history-con{
             grid-column: 4 / -1;
             h2{
-                margin: 1rem 0;
+                margin: 0.5rem 0;
                 display: flex;
+                font-size: 1.25rem;
                 align-items: center;
                 justify-content: space-between;
             }
+            
             .salary-title{
-                font-size: 1.2rem;
+                font-size: 0.75rem;
                 span{
-                    font-size: 1.8rem;
+                    font-size: 1rem;
                 }
             }
             .salary-item{
@@ -134,13 +146,13 @@ const DashboardStyled = styled.div`
                 border: 2px solid #FFFFFF;
                 box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
                 padding: 1rem;
-                border-radius: 20px;
+                border-radius: 15px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 p{
                     font-weight: 600;
-                    font-size: 1.6rem;
+                    font-size: 0.75rem;
                 }
             }
         }
