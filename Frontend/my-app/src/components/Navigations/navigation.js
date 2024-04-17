@@ -11,8 +11,8 @@ function Navigation({active, setActive}) {
             <div className="user-con">
                 <img className="img-ak" src= {avatar} alt=""/>
                 <div className="text">
-                    <h2>Mike</h2>
-                    <p>Your Money</p>
+                    <h3>Akshat</h3>
+                    <p>My Money</p>
                 </div>
 
             </div>
@@ -45,25 +45,25 @@ function Navigation({active, setActive}) {
 }
 
 const NavStyled = styled.nav`
-    padding: 2rem 1.5rem;
-    width: 374px;
+    padding: 1rem 1rem;
+    width: 15vw;
     height: 100%;
     background: rgba(250, 250, 250, 0.80);
     border: 3px solid #FFFFFF;
     background-filter: blur(4.5px);
-    border-radius: 32px;
+    border-radius: 22px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 2rem;
+    justify-content: space-evenly;
+    gap: 1rem;
     .user-con{
-        height: 50%;
+        height: 10%;
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 0.75rem;
         img{
-            height: 50%;
-            width: 25%;
+            height: 40px;
+            width: 40px;
             border-radius: 50%;
             object-fit: cover;
             background: #fcf6f9;
@@ -71,11 +71,13 @@ const NavStyled = styled.nav`
             padding: .2rem;
             box-shadow: 0px 1px 17px rgba(0,0,0,0.06);
         }
-        h2{
+        h3{
             color: rgba(34, 34, 96, 1);
+            font-size:1.5rem;
         }
         p{
             color: rgba(34, 34, 96, .6);
+            font-size:0.65rem;
         }
         }
 
@@ -85,23 +87,28 @@ const NavStyled = styled.nav`
             flex-direction: column;
             li{
                 display: grid;
-                grid-template-column: 40px auto;
-                margin: .6rem 0;
-                font-weight: 500;
-                cursor: pointer;
-                transition: all .4s ease-in-out;
-                color: rgba(34, 34, 96, .6);
-                padding: relative;
+                font-size: 0.75rem;
+            grid-template-columns: 40px auto;
+            align-items: center;
+            margin: .6rem 0;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all .4s ease-in-out;
+            color: rgba(34, 34, 96, .6);
+            padding-left: 0.5rem;
+            position: relative;
                 i{
                     color: rgba(34, 34, 96, .6);
-                    font-size: 1.4rem;
+                    font-size: 0.75rem;
                     transition: all .4s ease-in-out;
 
                 }
             }
 
         }
-
+        .bottom-nav{
+            font-size: 0.75rem;
+        }
         .active{
             color: rgba(34,34,96,1) !important;
             i{
@@ -112,7 +119,7 @@ const NavStyled = styled.nav`
                 position: absolute;
                 left: 0;
                 top: 0;
-                width: 5px;
+                width: 4px;
                 height: 100%;
                 background: #222260;
                 border-radius: 0 10px 10px 0;
