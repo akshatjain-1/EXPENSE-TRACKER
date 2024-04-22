@@ -47,7 +47,7 @@ function Chart() {
                     })
                 ],
                 backgroundColor: 'green',
-                tension : .5
+                tension : .4
             },
 
 
@@ -61,14 +61,18 @@ function Chart() {
                     })
                 ],
                 backgroundColor: 'red',
-                tension : .5
+                tension : .4
             }
 
         ]
     }
     return (
         <ChartStyled>
-            <Line data={data}/>
+            <Line data={data}
+            width={100}
+            height={50}
+            options={{ maintainAspectRatio: false }}
+            />
         </ChartStyled>
     )
 }
@@ -81,7 +85,7 @@ const ChartStyled = styled.div`
     padding: 1rem;
     border-radius: 20px;
     height: 100%;
-
+    width:  100%:
 `;
 
 export default Chart

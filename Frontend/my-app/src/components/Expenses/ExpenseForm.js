@@ -109,7 +109,7 @@ function ExpenseForm(){
 const ExpenseFormStyled = styled.form`
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     input, textarea, select{
         font-family: inherit;
         font-size: inherit;
