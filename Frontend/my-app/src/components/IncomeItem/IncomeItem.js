@@ -67,7 +67,7 @@ function IncomeItem({
     return(
         <IncomeItemStyled indicator= {indicatorColor}>
             <div className='icon'>
-                {type === 'expense' ? expenseCatIcon() : categoryIcon}
+                {type === 'expense' ? expenseCatIcon() : categoryIcon()}
             </div>
             <div className='content'>
                 <h5>{title}</h5>
@@ -101,27 +101,27 @@ function IncomeItem({
     
 const IncomeItemStyled = styled.div`
     background: #FCF6F9;
-    border: 2px solid #FFFFFF;
+    border: 1px solid #FFFFFF;
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-    border-radius: 20px;
-    padding: 1rem;
-    margin-bottom: 1rem;
+    border-radius: 15px;
+    padding: 0.5rem;
+    margin-bottom: 0.75rem;
     display: flex;
     align-items: center;
     gap: 1rem;
     width: 100%;
     color: #222260;
     .icon{
-        width: 80px;
-        height: 80px;
-        border-radius: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 15px;
         background: #F5F5F5;
         display: flex;
         align-items: center;
         justify-content: center;
         border: 2px solid #FFFFFF;
         i{
-            font-size: 2.6rem;
+            font-size: 1rem;
         }
     }
 
@@ -129,10 +129,10 @@ const IncomeItemStyled = styled.div`
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: .2rem;
+        gap: .1rem;
         h5{
-            font-size: 1.3rem;
-            padding-left: 2rem;
+            font-size: 1rem;
+            padding-left: 1.5rem;
             position: relative;
             &::before{
                 content: '';
@@ -151,10 +151,12 @@ const IncomeItemStyled = styled.div`
             display: flex;
             justify-content: space-between;
             align-items: center;
+            
             .text{
+                
                 display: flex;
                 align-items: center;
-                gap: 1.5rem;
+                gap: 1rem;
                 p{
                     display: flex;
                     align-items: center;

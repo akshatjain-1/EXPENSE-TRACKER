@@ -7,7 +7,7 @@ import Button from '../buttons/Button';
 import { plus } from '../../Utils/Icons';
 
 function Form(){
-    const {addIncome, getIncomes, error} = useGlobalContext()
+    const {addIncome, getIncomes, error,setError} = useGlobalContext()
     const [inputState, setInputState]= useState({
         title: '',
         amount: '',
@@ -21,13 +21,14 @@ function Form(){
 
     const handleInput = name => e => {
         setInputState({...inputState, [name]: e.target.value})
+        setError('')
 
     }
 
     const handleSubmit = e => {
         e.preventDefault()
         addIncome(inputState)
-        getIncomes()
+       
         setInputState({
             title: '',
             amount: '',
@@ -106,7 +107,7 @@ function Form(){
 const FormStyled = styled.form`
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     input, textarea, select{
         font-family: inherit;
         font-size: inherit;
